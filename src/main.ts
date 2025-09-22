@@ -1,8 +1,10 @@
 import "./types/md.d.ts";
+import "./styles.css";
 import { Plugin } from "obsidian";
-import OnboardingDialog from "src/onboarding/OnboardingDialog";
-import ReleaseNotes from "src/onboarding/ReleaseNotes";
-import { MyPluginSettings, DEFAULT_SETTINGS, SampleSettingTab } from "src/settings";
+import OnboardingDialog from "./onboarding/OnboardingDialog";
+import ReleaseNotes from "./onboarding/ReleaseNotes";
+import { MyPluginSettings, DEFAULT_SETTINGS, SampleSettingTab } from "./settings";
+import { showSvelteExample } from "./svelte-integration";
 
 export default class MyPlugin extends Plugin {
 	settings: MyPluginSettings;
@@ -11,6 +13,16 @@ export default class MyPlugin extends Plugin {
 		await this.loadSettings();
 		// This adds a settings tab so the user can configure various aspects of the plugin
 		this.addSettingTab(new SampleSettingTab(this.app, this));
+
+		// Add command to show Svelte example
+		this.addCommand({
+			id: "show-svelte-example",
+			name: "Show Svelte integration example",
+			callback: () => {
+				showSvelteExample(this.app);
+			},
+		});
+
 		// First install / update checks
 		await this.maybeShowOnboardingOrReleaseNotes();
 	}
