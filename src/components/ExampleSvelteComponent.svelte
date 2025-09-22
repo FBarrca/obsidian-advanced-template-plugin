@@ -25,7 +25,7 @@
 	}
 </script>
 
-<div class="svelte-component">
+<div>
 	<h3>{title}</h3>
 	<p>This is a Svelte component integrated into your Obsidian plugin!</p>
 	<p>Mounted: {mounted ? "Yes" : "No"}</p>
@@ -38,14 +38,6 @@
 </div>
 
 <style>
-	.svelte-component {
-		padding: 1rem;
-		border: 1px solid var(--background-modifier-border);
-		border-radius: 8px;
-		background: var(--background-primary);
-		margin: 1rem 0;
-	}
-
 	.svelte-component h3 {
 		margin: 0 0 0.5rem 0;
 		color: var(--text-normal);

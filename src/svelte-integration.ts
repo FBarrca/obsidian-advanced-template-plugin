@@ -18,7 +18,6 @@ export class SvelteExampleModal extends Modal {
 
 		// Create a container for the Svelte component
 		const container = contentEl.createDiv();
-		container.id = "svelte-example-container";
 
 		// Mount the Svelte component
 		this.svelteComponent = mount(ExampleSvelteComponent, {
